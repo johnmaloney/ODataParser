@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.22823.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Aetos.OData.Core", "Aetos.OData\Aetos.OData.Core.xproj", "{973522BE-2D64-448A-B646-0295AF1374B5}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Aetos.OData.Core", "Aetos.OData.Core\Aetos.OData.Core.xproj", "{973522BE-2D64-448A-B646-0295AF1374B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
