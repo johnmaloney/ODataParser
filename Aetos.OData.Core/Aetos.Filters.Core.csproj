@@ -7,8 +7,8 @@
     <ProjectGuid>{6B1DA27C-0671-47A5-942F-83CC2C4E8F15}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Aetos.OData.Core</RootNamespace>
-    <AssemblyName>Aetos.OData.Core</AssemblyName>
+    <RootNamespace>Aetos.Filtering.Core</RootNamespace>
+    <AssemblyName>Aetos.Filtering.Core</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\RuleOperator.cs" />
     <Compile Include="Interfaces\IFilterRule.cs" />
+    <Compile Include="Interfaces\IFilterRuleCriteria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

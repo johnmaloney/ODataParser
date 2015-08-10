@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Aetos.Filtering.Core")]
+[assembly: AssemblyTitle("Aetos.Filtering.OData")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft Corporation")]
-[assembly: AssemblyProduct("Aetos.Filtering.Core")]
+[assembly: AssemblyProduct("Aetos.Filtering.OData")]
 [assembly: AssemblyCopyright("Copyright © Microsoft Corporation 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("6b1da27c-0671-47a5-942f-83cc2c4e8f15")]
+[assembly: Guid("29ea8f72-8178-4793-bdf3-40fba7544a53")]
 
 // Version information for an assembly consists of the following four values:
 //
