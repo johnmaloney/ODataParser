@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aetos.Filtering.Core
+namespace QueryAnalyzer.Interfaces
 {
     public enum RuleOperator
     {
@@ -27,11 +27,5 @@ namespace Aetos.Filtering.Core
         DoesNotContain,
         IsDBNull,
         IsNotDBNull
-    }
-
-    public enum FilterRuleOperator
-    {
-        AND,
-        OR
     }
 }

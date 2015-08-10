@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aetos.Filtering.Core
+namespace QueryAnalyzer.Interfaces
 {
-    public interface IFilterRuleCriteria
+    public enum RuleCombinationOperator
     {
-
+        AND,
+        OR
     }
 }

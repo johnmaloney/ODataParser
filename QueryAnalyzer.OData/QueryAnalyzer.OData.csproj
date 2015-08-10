@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{29EA8F72-8178-4793-BDF3-40FBA7544A53}</ProjectGuid>
+    <ProjectGuid>{E4D98203-267F-4E8A-8430-16763AEB118F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Aetos.Filtering.OData</RootNamespace>
-    <AssemblyName>Aetos.Filtering.OData</AssemblyName>
+    <RootNamespace>QueryAnalyzer.OData</RootNamespace>
+    <AssemblyName>QueryAnalyzer.OData</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,13 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Manager.cs" />
+    <Compile Include="ODataConsumer.cs" />
+    <Compile Include="ODataPipeline\ConjunctionSplitter.cs" />
+    <Compile Include="ODataPipeline\FindReplacePipe.cs" />
+    <Compile Include="ODataRegexStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Aetos.OData.Core\Aetos.Filters.Core.csproj">
-      <Project>{6b1da27c-0671-47a5-942f-83cc2c4e8f15}</Project>
-      <Name>Aetos.Filters.Core</Name>
+    <ProjectReference Include="..\QueryAnalyzer.Common\QueryAnalyzer.Common.csproj">
+      <Project>{930c1ac8-239e-487a-b70f-72f4496a18f2}</Project>
+      <Name>QueryAnalyzer.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QueryAnalyzer.Interfaces\QueryAnalyzer.Interfaces.csproj">
+      <Project>{d07f46f2-dc85-41e1-aa8e-66f7a8f54aea}</Project>
+      <Name>QueryAnalyzer.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

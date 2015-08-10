@@ -3,28 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using QueryAnalyzer.Interfaces;
 
-namespace Aetos.Filtering.OData
+namespace QueryAnalyzer.OData.ODataPipeline
 {
-    public class Manager
+    public class ConjunctionSplitter : AFilterPipe
     {
         #region Fields
-
-
-
         #endregion
 
         #region Properties
-
-
-
         #endregion
 
         #region Methods
 
-        public IEnumerable<IFilterRule> BuildRules(IFilterRuleCriteria criteria)
+        public override void Filter(string filteredText)
         {
 
+            while (HasNextPipe)
+                Next<AFilterPipe>().Filter(filteredText, FilterRule);
         }
 
         #endregion

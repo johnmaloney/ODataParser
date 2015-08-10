@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6B1DA27C-0671-47A5-942F-83CC2C4E8F15}</ProjectGuid>
+    <ProjectGuid>{D07F46F2-DC85-41E1-AA8E-66F7A8F54AEA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Aetos.Filtering.Core</RootNamespace>
-    <AssemblyName>Aetos.Filtering.Core</AssemblyName>
+    <RootNamespace>QueryAnalyzer.Interfaces</RootNamespace>
+    <AssemblyName>QueryAnalyzer.Interfaces</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,10 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants\RuleOperator.cs" />
-    <Compile Include="Interfaces\IFilterRule.cs" />
-    <Compile Include="Interfaces\IFilterRuleCriteria.cs" />
+    <Compile Include="AFilterPipe.cs" />
+    <Compile Include="APipe.cs" />
+    <Compile Include="IConsumer.cs" />
+    <Compile Include="IFilterRule.cs" />
+    <Compile Include="IFilterRuleCriteria.cs" />
+    <Compile Include="IRegex.cs" />
+    <Compile Include="IStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RuleCombinationOperator.cs" />
+    <Compile Include="RuleOperator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
