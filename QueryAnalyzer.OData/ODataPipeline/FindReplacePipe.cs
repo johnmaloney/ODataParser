@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using QueryAnalyzer.Common;
 using QueryAnalyzer.Interfaces;
 
-namespace QueryAnalyzer.OData.ODataPipeline
+namespace QueryAnalyzer.Modules.OData.ODataPipeline
 {
     public class FindReplacePipe
     {        

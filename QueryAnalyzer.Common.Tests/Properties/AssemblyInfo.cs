@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("QueryAnalyzer.Modules.OData.Tests")]
+[assembly: AssemblyTitle("QueryAnalyzer.Common.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft Corporation")]
-[assembly: AssemblyProduct("QueryAnalyzer.Modules.OData.Tests")]
+[assembly: AssemblyProduct("QueryAnalyzer.Common.Tests")]
 [assembly: AssemblyCopyright("Copyright © Microsoft Corporation 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("bbdce15f-bbc8-495a-b45c-0d6ea40168fa")]
+[assembly: Guid("1b6aba29-acac-45af-b815-a795316fb67b")]
 
 // Version information for an assembly consists of the following four values:
 //

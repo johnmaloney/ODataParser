@@ -43,6 +43,7 @@
     <Compile Include="AFilterPipe.cs" />
     <Compile Include="APipe.cs" />
     <Compile Include="IConsumer.cs" />
+    <Compile Include="IFilterPipe.cs" />
     <Compile Include="IFilterRule.cs" />
     <Compile Include="IFilterRuleCriteria.cs" />
     <Compile Include="IRegex.cs" />

@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using QueryAnalyzer.Common.Criteria;
 
-namespace QueryAnalyzer.OData.Tests
+namespace QueryAnalyzer.Modules.OData.Tests
 {
     [TestClass]
     public class URLConsumerTests

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using QueryAnalyzer.Common.Filters;
 using QueryAnalyzer.Common;
 using QueryAnalyzer.Interfaces;
-using QueryAnalyzer.OData.ODataPipeline;
+using QueryAnalyzer.Modules.OData.ODataPipeline;
 
-namespace QueryAnalyzer.OData
+namespace QueryAnalyzer.Modules.OData
 {
     public class ODataConsumer : IConsumer
     {
@@ -37,38 +38,35 @@ namespace QueryAnalyzer.OData
 
         public List<IFilterRule> BuildRules()
         {
+            // Collect each individual rule that exists in the incoming filter statement //
             var compiledFilterRules = new List<IFilterRule>();
             if (!string.IsNullOrEmpty(filterRuleCriteria.FilterStatement))
             {
+                // Used to replace the seperators in a dat time structure. //
                 var primaryPipeline = new FindReplacePipe();
+                // Get the new filter statement after the Find and replace is executed //
                 var originalFilterStatement = primaryPipeline.Filter(filterRuleCriteria.FilterStatement);
-
+                // Break the filter statement into seperate clauses to be individually parsed //
                 var sections = originalFilterStatement.SplitByConjunction(filterRuleCriteria.FilterLogic);
-
+                // Iterate and build the section filters //
                 for (int i = 0; i < sections.Count(); ++i)
                 {
-                    var secondaryPipeline =
-                        new FilterRuleDiscoveryPipe(sections.ElementAt(i), criteria.ClientFilterConditions[i])
-                            .Add(new DateTimePipe()
-                            .Add(new ColumnNamePipe()
-                            .Add(new OperatorTypePipe()
-                            .Add(new OperandsPipe()))));
+                    // Build a Filter pipeline by combining in order the processing objects //
+                    var secondaryPipeline = new FilterRuleDiscoveryPipe(filterRuleCriteria);
+                    secondaryPipeline.Add(new DateTimePipe()
+                                    .Add(new VariableNamePipe()
+                                    .Add(new OperatorTypePipe()
+                                    .Add(new OperandsPipe()))));
 
                     secondaryPipeline.Filter(sections.ElementAt(i));
-
-                    secondaryPipeline.FilterRule.CombinationOperator = String.Equals(criteria.FilterLogic.ToLowerInvariant(),
-                                                                           FilterRuleOperator.OR.ToString(),
-                                                                           StringComparison.InvariantCultureIgnoreCase)
-                        ? FilterRuleOperator.OR
-                        : FilterRuleOperator.AND;
-
+                    
                     compiledFilterRules.Add(secondaryPipeline.FilterRule);
                 }
 
-                //if (!string.IsNullOrEmpty(criteria.OrderBy) & !string.IsNullOrEmpty(criteria.OrderByColumnName))
-                //{
-                //    compiledFilterRules.Add(new FilterRule() { ColumnName = criteria.OrderByColumnName, Operator = RuleOperator.Sort, Operands = criteria.OrderBy });
-                //}
+                if (!string.IsNullOrEmpty(filterRuleCriteria.OrderBy) & !string.IsNullOrEmpty(filterRuleCriteria.OrderByColumnName))
+                {
+                    compiledFilterRules.Add(new DefaultFilterRule() { VariableName = filterRuleCriteria.OrderByColumnName, Operator = RuleOperator.Sort, Operands = filterRuleCriteria.OrderBy });
+                }
             }
 
             return compiledFilterRules;

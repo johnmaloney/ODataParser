@@ -1,15 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.22823.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryAnalyzer.Common", "QueryAnalyzer.Common\QueryAnalyzer.Common.csproj", "{930C1AC8-239E-487A-B70F-72F4496A18F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryAnalyzer.Interfaces", "QueryAnalyzer.Interfaces\QueryAnalyzer.Interfaces.csproj", "{D07F46F2-DC85-41E1-AA8E-66F7A8F54AEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryAnalyzer.OData", "QueryAnalyzer.OData\QueryAnalyzer.OData.csproj", "{E4D98203-267F-4E8A-8430-16763AEB118F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryAnalyzer.Modules.OData", "QueryAnalyzer.OData\QueryAnalyzer.Modules.OData.csproj", "{E4D98203-267F-4E8A-8430-16763AEB118F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryAnalyzer.OData.Tests", "QueryAnalyzer.OData.Tests\QueryAnalyzer.OData.Tests.csproj", "{BBDCE15F-BBC8-495A-B45C-0D6EA40168FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryAnalyzer.Modules.OData.Tests", "QueryAnalyzer.OData.Tests\QueryAnalyzer.Modules.OData.Tests.csproj", "{BBDCE15F-BBC8-495A-B45C-0D6EA40168FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryAnalyzer.Common.Tests", "QueryAnalyzer.Common.Tests\QueryAnalyzer.Common.Tests.csproj", "{1B6ABA29-ACAC-45AF-B815-A795316FB67B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8E7DEE20-FDEF-4D94-AF1B-16EC7739B0C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{4C13EFB4-D4F8-44FD-9DC5-FC514B1ABF1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,8 +39,17 @@ Global
 		{BBDCE15F-BBC8-495A-B45C-0D6EA40168FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBDCE15F-BBC8-495A-B45C-0D6EA40168FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBDCE15F-BBC8-495A-B45C-0D6EA40168FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B6ABA29-ACAC-45AF-B815-A795316FB67B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B6ABA29-ACAC-45AF-B815-A795316FB67B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B6ABA29-ACAC-45AF-B815-A795316FB67B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B6ABA29-ACAC-45AF-B815-A795316FB67B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E4D98203-267F-4E8A-8430-16763AEB118F} = {4C13EFB4-D4F8-44FD-9DC5-FC514B1ABF1C}
+		{BBDCE15F-BBC8-495A-B45C-0D6EA40168FA} = {8E7DEE20-FDEF-4D94-AF1B-16EC7739B0C4}
+		{1B6ABA29-ACAC-45AF-B815-A795316FB67B} = {8E7DEE20-FDEF-4D94-AF1B-16EC7739B0C4}
 	EndGlobalSection
 EndGlobal

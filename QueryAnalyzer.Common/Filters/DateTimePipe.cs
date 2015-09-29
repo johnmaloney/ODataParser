@@ -1,25 +1,41 @@
-﻿using System;
+﻿using QueryAnalyzer.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using QueryAnalyzer.Interfaces;
 
-namespace QueryAnalyzer.Modules.OData.ODataPipeline
+namespace QueryAnalyzer.Common.Filters
 {
-    public class ConjunctionSplitter : AFilterPipe
+    public class DateTimePipe : AFilterPipe
     {
+
         #region Fields
+
+
+
         #endregion
 
         #region Properties
+
+
+
         #endregion
 
         #region Methods
 
-        public override void Filter(string filteredText)
+        public DateTimePipe()
         {
 
+        }
+
+        public DateTimePipe(string filterStatement)
+        {
+
+        }
+
+        public override void Filter(string filteredText)
+        {
             while (HasNextPipe)
                 Next<AFilterPipe>().Filter(filteredText, FilterRule);
         }

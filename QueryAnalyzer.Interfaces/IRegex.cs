@@ -9,6 +9,18 @@ namespace QueryAnalyzer.Interfaces
 {
     public interface IRegex : IStrategy
     {
+        Regex DefaultVariableName { get; }
+        Regex NumericVariableName { get; }
+
+
+        Regex OperatorCheck { get; }
+        Regex Operator { get;}
+        Regex OperatorAlt { get;  }
+
+        Regex TextOperands { get; }
+        Regex NumericOperands { get; }
+
+        Regex Date { get; }
         Regex DayMonthYear { get; }
         Regex MonthYear { get; }
         Regex Year { get; }

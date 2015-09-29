@@ -6,8 +6,8 @@
     <ProjectGuid>{BBDCE15F-BBC8-495A-B45C-0D6EA40168FA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>QueryAnalyzer.OData.Tests</RootNamespace>
-    <AssemblyName>QueryAnalyzer.OData.Tests</AssemblyName>
+    <RootNamespace>QueryAnalyzer.Modules.OData.Tests</RootNamespace>
+    <AssemblyName>QueryAnalyzer.Modules.OData.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -50,10 +50,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AssemblyInitializer.cs" />
     <Compile Include="URLConsumerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\QueryAnalyzer.Common.Tests\QueryAnalyzer.Common.Tests.csproj">
+      <Project>{1b6aba29-acac-45af-b815-a795316fb67b}</Project>
+      <Name>QueryAnalyzer.Common.Tests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\QueryAnalyzer.Common\QueryAnalyzer.Common.csproj">
       <Project>{930c1ac8-239e-487a-b70f-72f4496a18f2}</Project>
       <Name>QueryAnalyzer.Common</Name>
@@ -62,9 +67,9 @@
       <Project>{d07f46f2-dc85-41e1-aa8e-66f7a8f54aea}</Project>
       <Name>QueryAnalyzer.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\QueryAnalyzer.OData\QueryAnalyzer.OData.csproj">
+    <ProjectReference Include="..\QueryAnalyzer.OData\QueryAnalyzer.Modules.OData.csproj">
       <Project>{e4d98203-267f-4e8a-8430-16763aeb118f}</Project>
-      <Name>QueryAnalyzer.OData</Name>
+      <Name>QueryAnalyzer.Modules.OData</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

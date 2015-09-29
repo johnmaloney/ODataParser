@@ -41,13 +41,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Criteria\FilterRuleCriteria.cs" />
+    <Compile Include="Rules\DateFilterRule.cs" />
+    <Compile Include="Rules\DefaultFilterRule.cs" />
+    <Compile Include="Filters\VariableNamePipe.cs" />
+    <Compile Include="Filters\DateTimePipe.cs" />
+    <Compile Include="Filters\FilterRuleDiscoveryPipe.cs" />
+    <Compile Include="Filters\OperandsPipe.cs" />
+    <Compile Include="Filters\OperatorTypePipe.cs" />
     <Compile Include="ODataStringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Strategy.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\QueryAnalyzer\QueryAnalyzer.Interfaces\QueryAnalyzer.Interfaces.csproj">
-      <Project>{D07F46F2-DC85-41E1-AA8E-66F7A8F54AEA}</Project>
+    <ProjectReference Include="..\QueryAnalyzer.Interfaces\QueryAnalyzer.Interfaces.csproj">
+      <Project>{d07f46f2-dc85-41e1-aa8e-66f7a8f54aea}</Project>
       <Name>QueryAnalyzer.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>

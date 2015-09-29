@@ -8,9 +8,9 @@ namespace QueryAnalyzer.Interfaces
 {
     public interface IFilterRule
     {
-        string VariableName { get; }
-        RuleOperator Operator { get; }
-        string Operands { get; }
-        RuleCombinationOperator RuleCombinationOperator { get; }
+        string VariableName { get; set; }
+        RuleOperator Operator { get; set; }
+        string Operands { get; set; }
+        RuleCombinationOperator RuleCombinationOperator { get; set; }
     }
 }

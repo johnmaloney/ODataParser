@@ -41,7 +41,7 @@ namespace QueryAnalyzer.Interfaces
                 return default(TPipe);
         }
 
-        public APipe() { }
+        public APipe() { this.pipeline = new Queue<object>(); }
 
         #endregion
     }

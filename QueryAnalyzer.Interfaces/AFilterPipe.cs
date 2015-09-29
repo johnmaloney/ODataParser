@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace QueryAnalyzer.Interfaces
 {
-    public abstract class AFilterPipe : APipe
+    public abstract class AFilterPipe : APipe, IFilterPipe
     {
         #region Fields
         
         protected IFilterRule filterRule;
+        protected readonly RuleCombinationOperator filterRuleCombinator;
 
         #endregion
 
@@ -19,8 +20,6 @@ namespace QueryAnalyzer.Interfaces
         public IFilterRule FilterRule
         {
             get { return filterRule; }
-
-            protected set { this.filterRule = value; }
         }
 
         #endregion
@@ -43,15 +42,28 @@ namespace QueryAnalyzer.Interfaces
             this.Filter(filteredText);
         }
 
+        //public abstract APipe Add(APipe childPipe);
+
         public AFilterPipe() : base()
         {
 
         }
 
-        public AFilterPipe(IFilterRule filterRule)
+        public AFilterPipe(IFilterRuleCriteria filterRuleCriteria)
             : this()
         {
-            this.filterRule = filterRule;
+            switch (filterRuleCriteria.FilterLogic)
+            {
+                case "AND":
+                    filterRuleCombinator = RuleCombinationOperator.AND;
+                    break;
+                case "OR":
+                    filterRuleCombinator = RuleCombinationOperator.OR;
+                    break;
+                default:
+                    filterRuleCombinator = RuleCombinationOperator.AND;
+                    break;
+            }
         }
 
         #endregion
