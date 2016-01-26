@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E4D98203-267F-4E8A-8430-16763AEB118F}</ProjectGuid>
+    <ProjectGuid>{4E35AC49-D440-44C7-B1AC-DEF822151733}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>QueryAnalyzer.Modules.OData</RootNamespace>
-    <AssemblyName>QueryAnalyzer.Modules.OData</AssemblyName>
+    <RootNamespace>QueryAnalyzer</RootNamespace>
+    <AssemblyName>QueryAnalyzer</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,11 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ODataConsumer.cs" />
-    <Compile Include="ODataModule.cs" />
-    <Compile Include="ODataPipeline\ConjunctionSplitter.cs" />
-    <Compile Include="ODataPipeline\FindReplacePipe.cs" />
-    <Compile Include="ODataRegexStrategy.cs" />
+    <Compile Include="AnalyzerFactory.cs" />
+    <Compile Include="BootLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,6 +53,13 @@
       <Project>{d07f46f2-dc85-41e1-aa8e-66f7a8f54aea}</Project>
       <Name>QueryAnalyzer.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\QueryAnalyzer.OData\QueryAnalyzer.Modules.OData.csproj">
+      <Project>{e4d98203-267f-4e8a-8430-16763aeb118f}</Project>
+      <Name>QueryAnalyzer.Modules.OData</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="QueryAnalyzer.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -46,6 +46,7 @@
     <Compile Include="IFilterPipe.cs" />
     <Compile Include="IFilterRule.cs" />
     <Compile Include="IFilterRuleCriteria.cs" />
+    <Compile Include="IModule.cs" />
     <Compile Include="IRegex.cs" />
     <Compile Include="IStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
