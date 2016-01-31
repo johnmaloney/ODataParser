@@ -12,7 +12,6 @@ namespace QueryAnalyzer.Common.Tests
         [AssemblyInitialize()]
         public static void AssemblyInitialize(TestContext context)
         {
-            var boostrap = new BootStrapper();
         }
     }
 }

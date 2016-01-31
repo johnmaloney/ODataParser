@@ -11,7 +11,7 @@
     <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Expression parser engine using Regex as the parsing mechanism</releaseNotes>
+    <releaseNotes>Contracts for interacting with the QueryAnalyzer modules.</releaseNotes>
     <copyright>Copyright 2016</copyright>
     <tags>OData, Regex</tags>
   </metadata>

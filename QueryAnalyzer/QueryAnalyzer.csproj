@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnalyzerFactory.cs" />
+    <Compile Include="AnalyzerStrategy.cs" />
     <Compile Include="BootLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -53,20 +53,18 @@
       <Project>{d07f46f2-dc85-41e1-aa8e-66f7a8f54aea}</Project>
       <Name>QueryAnalyzer.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\QueryAnalyzer.OData\QueryAnalyzer.Modules.OData.csproj">
-      <Project>{e4d98203-267f-4e8a-8430-16763aeb118f}</Project>
-      <Name>QueryAnalyzer.Modules.OData</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="QueryAnalyzer.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
+
   -->
+  <Target Name="AfterBuild" Condition="'$(Configuration)' == 'Release'">
+    <!--Publish a Nuget package on Release build
+        See: https://docs.nuget.org/create/creating-and-publishing-a-package-->
+    <Exec Command="nuget pack QueryAnalyzer.csproj -OutputDirectory ..\NugetPackages\  -Prop Configuration=Release">
+    </Exec>
+  </Target>
 </Project>

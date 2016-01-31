@@ -51,7 +51,9 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ATest.cs" />
-    <Compile Include="BootStrapper.cs" />
+    <Compile Include="BootStrapperTests.cs" />
+    <Compile Include="MockItems\MockConsumer.cs" />
+    <Compile Include="MockItems\MockModule.cs" />
     <Compile Include="Pipeline\IPipe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -63,6 +65,10 @@
     <ProjectReference Include="..\QueryAnalyzer.Interfaces\QueryAnalyzer.Interfaces.csproj">
       <Project>{d07f46f2-dc85-41e1-aa8e-66f7a8f54aea}</Project>
       <Name>QueryAnalyzer.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QueryAnalyzer\QueryAnalyzer.csproj">
+      <Project>{4e35ac49-d440-44c7-b1ac-def822151733}</Project>
+      <Name>QueryAnalyzer</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

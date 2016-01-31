@@ -44,10 +44,13 @@ namespace QueryAnalyzer.Modules.OData
             {
                 // Used to replace the seperators in a dat time structure. //
                 var primaryPipeline = new FindReplacePipe();
+
                 // Get the new filter statement after the Find and replace is executed //
                 var originalFilterStatement = primaryPipeline.Filter(filterRuleCriteria.FilterStatement);
+
                 // Break the filter statement into seperate clauses to be individually parsed //
                 var sections = originalFilterStatement.SplitByConjunction(filterRuleCriteria.FilterLogic);
+
                 // Iterate and build the section filters //
                 for (int i = 0; i < sections.Count(); ++i)
                 {

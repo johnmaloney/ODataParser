@@ -19,6 +19,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{4C13
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryAnalyzer", "QueryAnalyzer\QueryAnalyzer.csproj", "{4E35AC49-D440-44C7-B1AC-DEF822151733}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Packages", "Packages", "{E6C57A20-55CA-4A26-BA94-9D88D587F4B5}"
+	ProjectSection(SolutionItems) = preProject
+		NugetPackages\QueryAnalyzer.1.0.0.0.nupkg = NugetPackages\QueryAnalyzer.1.0.0.0.nupkg
+		NugetPackages\QueryAnalyzer.Interfaces.1.0.0.0.nupkg = NugetPackages\QueryAnalyzer.Interfaces.1.0.0.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Specs", "Specs", "{D6D2E9D8-A9C8-4376-B4B7-A6490B8F7C0D}"
+	ProjectSection(SolutionItems) = preProject
+		QueryAnalyzer\QueryAnalyzer.nuspec = QueryAnalyzer\QueryAnalyzer.nuspec
+		QueryAnalyzer.Interfaces\QueryAnalyzer.nuspec = QueryAnalyzer.Interfaces\QueryAnalyzer.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,5 +69,6 @@ Global
 		{E4D98203-267F-4E8A-8430-16763AEB118F} = {4C13EFB4-D4F8-44FD-9DC5-FC514B1ABF1C}
 		{BBDCE15F-BBC8-495A-B45C-0D6EA40168FA} = {8E7DEE20-FDEF-4D94-AF1B-16EC7739B0C4}
 		{1B6ABA29-ACAC-45AF-B815-A795316FB67B} = {8E7DEE20-FDEF-4D94-AF1B-16EC7739B0C4}
+		{D6D2E9D8-A9C8-4376-B4B7-A6490B8F7C0D} = {E6C57A20-55CA-4A26-BA94-9D88D587F4B5}
 	EndGlobalSection
 EndGlobal

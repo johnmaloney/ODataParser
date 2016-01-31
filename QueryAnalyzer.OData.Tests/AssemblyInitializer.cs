@@ -19,7 +19,7 @@ namespace QueryAnalyzer.Modules.OData.Tests
             ATest.AssemblyInitialize(context);
 
             Strategy.AddStrategy<IRegex>(new ODataRegexStrategy());
-
+            Strategy.AddStrategy<IAnalyzerStrategy>(new AnalyzerStrategy());
         }
     }
 }

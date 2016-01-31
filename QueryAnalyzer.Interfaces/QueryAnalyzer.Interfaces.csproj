@@ -42,7 +42,10 @@
   <ItemGroup>
     <Compile Include="AFilterPipe.cs" />
     <Compile Include="APipe.cs" />
+    <Compile Include="DateTypeOperator.cs" />
+    <Compile Include="IAnalyzerStrategy.cs" />
     <Compile Include="IConsumer.cs" />
+    <Compile Include="IFilterDateRule.cs" />
     <Compile Include="IFilterPipe.cs" />
     <Compile Include="IFilterRule.cs" />
     <Compile Include="IFilterRuleCriteria.cs" />
@@ -58,7 +61,11 @@
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
   -->
+  <Target Name="AfterBuild" Condition="'$(Configuration)' == 'Release'">
+    <!--Publish a Nuget package on Release build
+        See: https://docs.nuget.org/create/creating-and-publishing-a-package-->
+    <Exec Command="nuget pack QueryAnalyzer.Interfaces.csproj -OutputDirectory ..\NugetPackages\  -Prop Configuration=Release">
+    </Exec>
+  </Target>
 </Project>

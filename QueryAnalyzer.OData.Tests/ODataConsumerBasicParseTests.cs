@@ -122,5 +122,23 @@ namespace QueryAnalyzer.Modules.OData.Tests
             Assert.AreEqual("PrimaryKey", rules[0].VariableName);
 
         }
+
+        [TestMethod]
+        [Ignore]
+        public void consume_date_url_expect_rules()
+        {
+            var oDataConsumer = new ODataConsumer(new FilterRuleCriteria
+            {
+                FilterStatement = "day(DateOpened) eq 1 and month(DateOpened) eq 10 and year(DateOpened) eq 2014",
+                FilterLogic = "and"
+            });
+
+            var rules = oDataConsumer.BuildRules();
+            Assert.IsTrue(rules.Count == 1);
+            Assert.AreEqual(RuleOperator.Contains, rules[0].Operator);
+            Assert.AreEqual("A", rules[0].Operands);
+            Assert.AreEqual("PrimaryKey", rules[0].VariableName);
+
+        }
     }
 }

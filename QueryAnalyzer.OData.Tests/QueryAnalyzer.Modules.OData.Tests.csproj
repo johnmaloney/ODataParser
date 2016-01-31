@@ -56,6 +56,7 @@
     <Compile Include="ODataConsumerBasicParseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecialCharacterParsingTests.cs" />
+    <Compile Include="ModuleTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QueryAnalyzer.Common.Tests\QueryAnalyzer.Common.Tests.csproj">
@@ -73,6 +74,10 @@
     <ProjectReference Include="..\QueryAnalyzer.OData\QueryAnalyzer.Modules.OData.csproj">
       <Project>{e4d98203-267f-4e8a-8430-16763aeb118f}</Project>
       <Name>QueryAnalyzer.Modules.OData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QueryAnalyzer\QueryAnalyzer.csproj">
+      <Project>{4e35ac49-d440-44c7-b1ac-def822151733}</Project>
+      <Name>QueryAnalyzer</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
