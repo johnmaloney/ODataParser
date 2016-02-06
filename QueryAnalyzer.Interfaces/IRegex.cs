@@ -21,6 +21,7 @@ namespace QueryAnalyzer.Interfaces
         Regex NumericOperands { get; }
 
         Regex Date { get; }
+        Regex DateValue { get; }
         Regex DayMonthYear { get; }
         Regex MonthYear { get; }
         Regex Year { get; }

@@ -33,6 +33,8 @@ namespace QueryAnalyzer.Modules.OData
 
         public Regex Date { get; private set; }
 
+        public Regex DateValue { get; set; }
+
         public Regex DayMonthYear { get; private set; }
 
         public Regex MonthYear { get; private set; }
@@ -63,7 +65,8 @@ namespace QueryAnalyzer.Modules.OData
             NumericOperands = new Regex(@"[-\d.]+$");
 
             Date = new Regex(@"\b(?:DateTime)\b");
-            DayMonthYear = new Regex(@"\bday\b.*?\bmonth\b.*?\byear\b.*?\d + ");
+            DateValue = new Regex(@"([""'])(?:(?=(\\?))\2.)*?\1");
+            DayMonthYear = new Regex(@"\b(?:day|month|year)\b");
             MonthYear = new Regex(@"\bmonth\b.*?\byear\b.*?\d+");
             Year = new Regex(@"\byear\b.*?\d+");
             AndConjunction = new Regex(this.AndConjunctionPattern);

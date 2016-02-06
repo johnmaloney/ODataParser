@@ -124,7 +124,6 @@ namespace QueryAnalyzer.Modules.OData.Tests
         }
 
         [TestMethod]
-        [Ignore]
         public void consume_date_url_expect_rules()
         {
             var oDataConsumer = new ODataConsumer(new FilterRuleCriteria
@@ -135,10 +134,35 @@ namespace QueryAnalyzer.Modules.OData.Tests
 
             var rules = oDataConsumer.BuildRules();
             Assert.IsTrue(rules.Count == 1);
-            Assert.AreEqual(RuleOperator.Contains, rules[0].Operator);
-            Assert.AreEqual("A", rules[0].Operands);
-            Assert.AreEqual("PrimaryKey", rules[0].VariableName);
 
+            var dateRule = rules[0] as IFilterDateRule;
+            Assert.IsNotNull(dateRule);
+
+            Assert.AreEqual(10, dateRule.DateOperands.Month);
+            Assert.AreEqual(1, dateRule.DateOperands.Day);
+            Assert.AreEqual(2014, dateRule.DateOperands.Year);
         }
+
+        [TestMethod]
+        public void consume_exact_date_url_expect_rules()
+        {
+            var oDataConsumer = new ODataConsumer(new FilterRuleCriteria
+            {
+                FilterStatement = "DateOpened gt DateTime'2014-10-01T23:59:59'",
+                FilterLogic = "and"
+            });
+
+            var rules = oDataConsumer.BuildRules();
+            Assert.IsTrue(rules.Count == 1);
+
+            var dateRule = rules[0] as IFilterDateRule;
+            Assert.IsNotNull(dateRule);
+
+            Assert.AreEqual(10, dateRule.DateOperands.Month);
+            Assert.AreEqual(1, dateRule.DateOperands.Day);
+            Assert.AreEqual(2014, dateRule.DateOperands.Year);
+        }
+
+        
     }
 }

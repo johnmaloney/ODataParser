@@ -15,6 +15,7 @@ namespace QueryAnalyzer.Common.Filters
 
         private readonly Regex dayMonthYear;
         private readonly Regex exactDate;
+        private readonly Regex dateValue;
 
         #endregion
 
@@ -22,11 +23,12 @@ namespace QueryAnalyzer.Common.Filters
         #endregion
 
         #region Methods
-        
+
         public DateTimePipe()
         {
             this.dayMonthYear = Strategy.For<IRegex>().DayMonthYear;
             this.exactDate = Strategy.For<IRegex>().Date;
+            this.dateValue = Strategy.For<IRegex>().DateValue;
         }
 
         public override void Filter(string filteredText)
@@ -44,7 +46,7 @@ namespace QueryAnalyzer.Common.Filters
                 if (hasExplicitDate)
                 {
                     dateFilter.DateType = DateTypeOperator.FullDate;
-                    dateFilter.DateOperands = DateTime.Parse(exactDate.Match(filteredText).Value.Replace("'", string.Empty));
+                    dateFilter.DateOperands = DateTime.Parse(dateValue.Match(filteredText).Value.Replace("'", string.Empty));
                 }
                 else if (hasDayMonthYear)
                 {

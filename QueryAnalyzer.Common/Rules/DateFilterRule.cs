@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QueryAnalyzer.Common
 {
-    public class DateFilterRule : IFilterRule
+    public class DateFilterRule : IFilterRule, IFilterDateRule
     {
         #region Fields
 
@@ -39,6 +39,10 @@ namespace QueryAnalyzer.Common
             get;
             set;
         }
+
+        public DateTime DateOperands { get; set; }
+
+        public DateTypeOperator DateType { get; set; }
 
         #endregion
 
