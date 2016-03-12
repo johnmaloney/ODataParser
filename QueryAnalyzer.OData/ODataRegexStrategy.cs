@@ -11,10 +11,10 @@ namespace QueryAnalyzer.Modules.OData
     public class ODataRegexStrategy : IRegex
     {
         #region Fields
-        
         #endregion
 
         #region Properties
+
         public Regex DefaultVariableName { get; private set; }
 
         public Regex NumericVariableName { get; private set; }
@@ -41,11 +41,13 @@ namespace QueryAnalyzer.Modules.OData
 
         public Regex Year { get; private set; }
 
+
         public Regex AndConjunction { get; private set; }
 
         public string AndConjunctionPattern { get { return @"(?<=^([^']|'[^']*')*)\band\b"; } }
 
         public Regex OrConjunction { get; private set; }
+
         public string OrConjunctionPattern { get { return @"(?<=^([^']|'[^']*')*)\bor\b"; } }
 
         #endregion

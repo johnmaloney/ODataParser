@@ -42,7 +42,7 @@ namespace QueryAnalyzer.Modules.OData
             var compiledFilterRules = new List<IFilterRule>();
             if (!string.IsNullOrEmpty(filterRuleCriteria.FilterStatement))
             {
-                // Used to replace the seperators in a dat time structure. //
+                // Used to replace the seperators in a date time structure. //
                 var primaryPipeline = new FindReplacePipe();
 
                 // Get the new filter statement after the Find and replace is executed //

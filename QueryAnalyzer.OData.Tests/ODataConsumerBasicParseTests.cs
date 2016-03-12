@@ -162,7 +162,5 @@ namespace QueryAnalyzer.Modules.OData.Tests
             Assert.AreEqual(1, dateRule.DateOperands.Day);
             Assert.AreEqual(2014, dateRule.DateOperands.Year);
         }
-
-        
     }
 }

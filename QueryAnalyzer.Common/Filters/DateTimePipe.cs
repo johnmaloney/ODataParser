@@ -10,7 +10,6 @@ namespace QueryAnalyzer.Common.Filters
 {
     public class DateTimePipe : AFilterPipe
     {
-
         #region Fields
 
         private readonly Regex dayMonthYear;
