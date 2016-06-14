@@ -1,0 +1,55 @@
+﻿/// Need to consider the conjunctions of these objects, 
+/// should this be suscribed in the collection container or the individual statements //
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+
+    "definitions": {
+        "filterRule": {
+            "$schema": "http://json-schema.org/draft-04/schema",
+                "title": "JSON Schema for the statement object used in the filter rule parsing.",
+                "type": "object",
+                "properties": {
+
+                    "variableName": {
+                        "type": "string",
+                        "description": "The item that contains the value to filter on. Example: VariableName = PrimaryKey."
+                    },
+
+                    "operator": {
+                        "type": "string",
+                        "enum": [ "equals", "notequal", "lt", "lte", "gt", "gte" ],
+                        "description": "The operator for the equation. Example: equals, eq, greaterthan, gt, lessthan, lt, etc."
+                    },
+
+                    "operands": {
+                        "type": "string",
+                        "description": "The value to compare the variableName's value to. Example: 100, Joe Smith, Chicago etc."
+                    },
+
+                    "versions": {
+                        "type": "array",
+                        "description": "An array of version numbers.",
+                        "minItems": 1,
+                        "items": {
+                            "type": "number"
+                        }
+                    }
+                },
+                "required": [ "variableName", "operator", "operands" ]
+        }
+    },
+
+    "title": "JSON Schema for collection of statement object used in the filter rule parsing.",
+    "type": "object",
+
+    "properties": {
+        "rules": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/filterRule"
+            }
+        }
+    }
+}
+
+
