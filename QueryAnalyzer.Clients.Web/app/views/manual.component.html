@@ -1,0 +1,22 @@
+﻿
+<h2>Manually Entered Values</h2>
+<div class="grid grid-pad">
+    <span>Variable Name:</span>
+    <input id="columnName" [(ngModel)]="variableName"/>
+
+    <span>Operator:</span>
+    <select type="number" [(ngModel)]="operator" (ngModelChange)="operatorChanged()">
+        <option *ngFor="let op of operators" [ngValue]="op">{{op.value}}</option>
+    </select>
+
+    <span>Operands:</span>
+    <input id="operands" [(ngModel)]="operands" />
+
+    <button (click)="generateSyntax()">Generate Syntax</button>
+
+    <div class="editable">
+        <pre>{{syntax | json}}</pre>
+    </div>
+
+</div>
+
