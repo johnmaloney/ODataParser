@@ -4,6 +4,7 @@
   "description": "Query syntax generator for the QueryAnalyzer project: https://www.nuget.org/packages/QueryAnalyzer/",
   "devDependencies": {
     "grunt": "~0.4.5",
+    "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-jshint": "~0.4.0",
     "grunt-contrib-uglify": "~0.4.0",
     "grunt-contrib-watch": "~0.4.0",

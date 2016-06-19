@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>QuerySyntaxGenerator</RootNamespace>
-    <AssemblyName>QuerySyntaxGenerator</AssemblyName>
+    <RootNamespace>QueryAnalyzer.CDN</RootNamespace>
+    <AssemblyName>QueryAnalyzer.CDN</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -66,6 +66,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="lib\qSynG-0.1.0.js" />
+    <Content Include="lib\qSynG-0.1.0.min.js" />
+    <Content Include="lib\qSynG.debug.js" />
     <Content Include="packages.config" />
     <Content Include="package.json" />
     <Content Include="doc\fonts\OpenSans-Bold-webfont.eot" />
@@ -80,6 +83,7 @@
     <Content Include="doc\fonts\OpenSans-LightItalic-webfont.woff" />
     <Content Include="doc\fonts\OpenSans-Regular-webfont.eot" />
     <Content Include="doc\fonts\OpenSans-Regular-webfont.woff" />
+    <None Include="Properties\PublishProfiles\GIS-CDN.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -112,9 +116,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="lib\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -130,7 +132,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>12346</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:12346/</IISUrl>
+          <IISUrl>http://localhost:2191/CDN/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

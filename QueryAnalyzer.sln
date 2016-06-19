@@ -35,7 +35,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryAnalyzer.Modules.JSON"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{E37D4D56-B055-4157-B7D2-B899D782BEE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuerySyntaxGenerator", "QuerySyntaxGenerator\QuerySyntaxGenerator.csproj", "{3D905EC9-7898-459C-AFB9-768DB5FF2741}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryAnalyzer.CDN", "QueryAnalyzer.CDN\QueryAnalyzer.CDN.csproj", "{3D905EC9-7898-459C-AFB9-768DB5FF2741}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryAnalyzer.Clients.Web", "QueryAnalyzer.Clients.Web\QueryAnalyzer.Clients.Web.csproj", "{4A943ED7-1668-4765-B6CC-6AE4C5D04EA7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{44B4418E-2A00-43A1-9251-EDA8011004FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryAnalyzer.API", "QueryAnalyzer.API\QueryAnalyzer.API.csproj", "{5BF29E36-A50A-4993-8269-8F0DB1F359E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{99BECC56-A9CE-4B79-BB23-949BD2652568}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{303067B5-4B8B-4F65-846D-5015CCE9ED92}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{E28B2D6E-CE46-4BA7-9BB9-224F3F56CD79}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Templates\QueryAnalyzerAPI.json = PublishScripts\Templates\QueryAnalyzerAPI.json
+		PublishScripts\Templates\QueryAnalyzerAPI.param.dev.json = PublishScripts\Templates\QueryAnalyzerAPI.param.dev.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +91,14 @@ Global
 		{3D905EC9-7898-459C-AFB9-768DB5FF2741}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D905EC9-7898-459C-AFB9-768DB5FF2741}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D905EC9-7898-459C-AFB9-768DB5FF2741}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A943ED7-1668-4765-B6CC-6AE4C5D04EA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A943ED7-1668-4765-B6CC-6AE4C5D04EA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A943ED7-1668-4765-B6CC-6AE4C5D04EA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A943ED7-1668-4765-B6CC-6AE4C5D04EA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BF29E36-A50A-4993-8269-8F0DB1F359E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BF29E36-A50A-4993-8269-8F0DB1F359E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BF29E36-A50A-4993-8269-8F0DB1F359E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BF29E36-A50A-4993-8269-8F0DB1F359E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,5 +110,9 @@ Global
 		{D6D2E9D8-A9C8-4376-B4B7-A6490B8F7C0D} = {E6C57A20-55CA-4A26-BA94-9D88D587F4B5}
 		{203F8B5F-C258-4AA6-A1B4-118DC497D2E1} = {4C13EFB4-D4F8-44FD-9DC5-FC514B1ABF1C}
 		{3D905EC9-7898-459C-AFB9-768DB5FF2741} = {E37D4D56-B055-4157-B7D2-B899D782BEE0}
+		{4A943ED7-1668-4765-B6CC-6AE4C5D04EA7} = {E37D4D56-B055-4157-B7D2-B899D782BEE0}
+		{5BF29E36-A50A-4993-8269-8F0DB1F359E6} = {44B4418E-2A00-43A1-9251-EDA8011004FA}
+		{303067B5-4B8B-4F65-846D-5015CCE9ED92} = {99BECC56-A9CE-4B79-BB23-949BD2652568}
+		{E28B2D6E-CE46-4BA7-9BB9-224F3F56CD79} = {99BECC56-A9CE-4B79-BB23-949BD2652568}
 	EndGlobalSection
 EndGlobal
