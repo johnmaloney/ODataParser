@@ -10,27 +10,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
+var generatedSyntax_1 = require('../models/generatedSyntax');
 var operator_service_1 = require('../services/operator.service');
 var ManualComponent = (function () {
     function ManualComponent(router, operatorService) {
         this.router = router;
         this.operatorService = operatorService;
-        this.operators = [];
-        this.variableName = "PrimaryKey";
-        this.operands = "104004";
         this.syntax = {
-            url: "?[variableName] eq [operands]",
+            url: "?query=[variableName] eq [operands]",
+            query: "[variableName] eq [operands]",
             json: {
                 variableName: "variableName",
                 operator: "equals",
                 operands: "operands"
             }
         };
+        this.operators = [];
+        this.variableName = "Name";
+        this.operands = "United States";
     }
     ManualComponent.prototype.generateSyntax = function () {
         var model = new QSynG.SyntaxModel(this.variableName, this.operator.key, this.operands);
         var generator = QSynG.generator([model]);
         this.syntax.url = generator.urlSyntax();
+        this.syntax.query = generator.querySyntax();
         this.syntax.json = generator.objectSyntax();
     };
     ManualComponent.prototype.ngOnInit = function () {
@@ -39,16 +42,14 @@ var ManualComponent = (function () {
             this.operators.push({ key: operator, value: QSynG.Operators[operator].key });
         }
         this.operator = this.operators[0];
-        //this.linkLoaded();
-        //this.operatorService.get()
-        //    .then(o => {
-        //        //this.operators = o;
-        //        console.log(o);
-        //    });
     };
     ManualComponent.prototype.operatorChanged = function () {
         this.generateSyntax();
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', generatedSyntax_1.GeneratedSyntax)
+    ], ManualComponent.prototype, "syntax", void 0);
     ManualComponent = __decorate([
         core_1.Component({
             selector: 'qSynG-manual',

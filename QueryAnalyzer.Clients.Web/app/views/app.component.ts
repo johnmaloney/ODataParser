@@ -4,6 +4,8 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
 import { OperatorService }     from '../services/operator.service';
 import { UrlService } from '../services/urls.service';
 import { ManualComponent } from '../views/manual.component';
+import { TableDataComponent } from '../views/tabledata.component';
+import { CountriesService } from '../services/countries.service';
 
 
 @RouteConfig([
@@ -12,6 +14,12 @@ import { ManualComponent } from '../views/manual.component';
         name: 'ManualEntry',
         component: ManualComponent,
         useAsDefault: true
+    }, 
+    {
+        path: '/tabledata',
+        name: 'TableData',
+        component: TableDataComponent,
+        useAsDefault: false
     }
 ])
 
@@ -23,6 +31,7 @@ import { ManualComponent } from '../views/manual.component';
           <h1>{{title}}</h1>
           <nav>
             <a [routerLink]="['ManualEntry']">Manual Entry</a>
+            <a [routerLink]="['TableData']">Table Data</a>
             <a href="{{CDNUrl}}/doc/index.html">Documentation</a>
           </nav>
           <router-outlet></router-outlet>
@@ -31,12 +40,12 @@ import { ManualComponent } from '../views/manual.component';
     directives: [ROUTER_DIRECTIVES],
     providers: [
         ROUTER_PROVIDERS,
-        OperatorService
+        OperatorService, 
+        CountriesService
     ]
 })
 
-
 export class AppComponent {
     title = 'Query Analyzer Client';
-    CDNUrl = UrlService.CDNServer;
+    CDNUrl = UrlService.CDNUrl;
 }

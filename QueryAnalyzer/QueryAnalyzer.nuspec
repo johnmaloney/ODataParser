@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package >
+<package>
   <metadata>
     <id>$id$</id>
     <version>$version$</version>
@@ -14,5 +14,22 @@
     <releaseNotes>Expression parser engine using Regex as the parsing mechanism</releaseNotes>
     <copyright>Copyright 2016</copyright>
     <tags>OData, Regex</tags>
-  </metadata>
+    <references>
+      <group>
+        <reference file="QueryAnalyzer.dll" />
+        <!--Dependency for the OData Module -->
+        <reference file="QueryAnalyzer.Modules.OData.dll" />
+        <!-- Common Library -->
+        <reference file="QueryAnalyzer.Common.dll" />
+        <!-- Interfaces -->
+        <reference file="QueryAnalyzer.Interfaces.dll" />
+      </group>
+    </references>
+  </metadata>  
+  <files>
+    <file src="..\QueryAnalyzer.OData\bin\Release\QueryAnalyzer.Modules.OData.dll" target="lib\net46\" />
+    <file src="..\QueryAnalyzer.Common\bin\Release\QueryAnalyzer.Common.dll" target="lib\net46\" />
+    <file src="..\QueryAnalyzer.Interfaces\bin\Release\QueryAnalyzer.Interfaces.dll" target="lib\net46\" />
+    <file src="..\QueryAnalyzer\bin\Release\QueryAnalyzer.dll" target="lib\net46\" />
+  </files>
 </package>

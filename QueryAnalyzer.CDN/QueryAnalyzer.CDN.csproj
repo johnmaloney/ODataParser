@@ -66,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="index.html" />
     <Content Include="lib\qSynG-0.1.0.js" />
     <Content Include="lib\qSynG-0.1.0.min.js" />
     <Content Include="lib\qSynG.debug.js" />
@@ -83,6 +84,7 @@
     <Content Include="doc\fonts\OpenSans-LightItalic-webfont.woff" />
     <Content Include="doc\fonts\OpenSans-Regular-webfont.eot" />
     <Content Include="doc\fonts\OpenSans-Regular-webfont.woff" />
+    <Content Include="doc\config.json" />
     <None Include="Properties\PublishProfiles\GIS-CDN.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

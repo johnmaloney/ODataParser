@@ -7,7 +7,8 @@
             dist : {
                 src: ['src/**/*.js', 'src/README.md', 'test/*.js'],
                 options: {
-                    destination: 'doc'
+                    destination: 'doc'//,
+                    //configure : "doc/config.json"
                 }
             }
         },

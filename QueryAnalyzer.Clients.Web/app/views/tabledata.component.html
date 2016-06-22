@@ -1,0 +1,22 @@
+﻿
+
+<div class="grid grid-pad">
+    
+    <qSynG-manual [syntax]="generatedSyntaxForTable"></qSynG-manual>
+
+    <p>
+        {{generatedSyntax | json}}
+        Use the statement above to filter the data below: 
+    </p>
+    
+    <button (click)="applyGeneratedFilter()">Apply Filter</button>
+    <button (click)="resetDataFilters()">Reset</button>
+
+    <div #divTable id="dvTable">
+        <table id="dataTable" border="1">
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+

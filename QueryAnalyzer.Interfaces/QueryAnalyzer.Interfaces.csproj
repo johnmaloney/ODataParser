@@ -62,10 +62,4 @@
   <Target Name="BeforeBuild">
   </Target>
   -->
-  <Target Name="AfterBuild" Condition="'$(Configuration)' == 'Release'">
-    <!--Publish a Nuget package on Release build
-        See: https://docs.nuget.org/create/creating-and-publishing-a-package-->
-    <Exec Command="nuget pack QueryAnalyzer.Interfaces.csproj -OutputDirectory ..\NugetPackages\  -Prop Configuration=Release">
-    </Exec>
-  </Target>
 </Project>

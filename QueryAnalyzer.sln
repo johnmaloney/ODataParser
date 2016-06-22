@@ -21,14 +21,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryAnalyzer", "QueryAnaly
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Packages", "Packages", "{E6C57A20-55CA-4A26-BA94-9D88D587F4B5}"
 	ProjectSection(SolutionItems) = preProject
-		NugetPackages\QueryAnalyzer.1.0.0.0.nupkg = NugetPackages\QueryAnalyzer.1.0.0.0.nupkg
-		NugetPackages\QueryAnalyzer.Interfaces.1.0.0.0.nupkg = NugetPackages\QueryAnalyzer.Interfaces.1.0.0.0.nupkg
+		NugetPackages\QueryAnalyzer.1.0.17.2377.nupkg = NugetPackages\QueryAnalyzer.1.0.17.2377.nupkg
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Specs", "Specs", "{D6D2E9D8-A9C8-4376-B4B7-A6490B8F7C0D}"
 	ProjectSection(SolutionItems) = preProject
 		QueryAnalyzer\QueryAnalyzer.nuspec = QueryAnalyzer\QueryAnalyzer.nuspec
-		QueryAnalyzer.Interfaces\QueryAnalyzer.nuspec = QueryAnalyzer.Interfaces\QueryAnalyzer.nuspec
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryAnalyzer.Modules.JSON", "QueryAnalyzer.Modules.JSON\QueryAnalyzer.Modules.JSON.csproj", "{203F8B5F-C258-4AA6-A1B4-118DC497D2E1}"
@@ -51,6 +49,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{
 	ProjectSection(SolutionItems) = preProject
 		PublishScripts\Templates\QueryAnalyzerAPI.json = PublishScripts\Templates\QueryAnalyzerAPI.json
 		PublishScripts\Templates\QueryAnalyzerAPI.param.dev.json = PublishScripts\Templates\QueryAnalyzerAPI.param.dev.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{119808FC-EB63-4FB5-B67C-AE7573D7BE53}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global

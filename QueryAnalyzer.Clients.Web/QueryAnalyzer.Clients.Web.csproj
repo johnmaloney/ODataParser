@@ -69,6 +69,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\views\app.component.css" />
+    <Content Include="app\views\tabledata.component.css" />
+    <Content Include="app\views\tabledata.component.html" />
     <Content Include="app\views\manual.component.css" />
     <Content Include="app\views\manual.component.html" />
     <Content Include="index.html" />
@@ -94,11 +96,13 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\models\generatedSyntax.ts" />
+    <TypeScriptCompile Include="app\services\countries.service.ts" />
     <TypeScriptCompile Include="app\services\in-memory-data.service.ts" />
     <TypeScriptCompile Include="app\services\qSynGen.ts" />
     <TypeScriptCompile Include="app\services\urls.service.ts" />
     <TypeScriptCompile Include="app\views\app.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
+    <TypeScriptCompile Include="app\views\tabledata.component.ts" />
     <TypeScriptCompile Include="app\views\manual.component.ts" />
     <TypeScriptCompile Include="app\models\operator.ts" />
     <TypeScriptCompile Include="app\services\operator.service.ts" />

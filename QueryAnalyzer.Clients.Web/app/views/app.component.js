@@ -13,10 +13,12 @@ var router_deprecated_1 = require('@angular/router-deprecated');
 var operator_service_1 = require('../services/operator.service');
 var urls_service_1 = require('../services/urls.service');
 var manual_component_1 = require('../views/manual.component');
+var tabledata_component_1 = require('../views/tabledata.component');
+var countries_service_1 = require('../services/countries.service');
 var AppComponent = (function () {
     function AppComponent() {
         this.title = 'Query Analyzer Client';
-        this.CDNUrl = urls_service_1.UrlService.CDNServer;
+        this.CDNUrl = urls_service_1.UrlService.CDNUrl;
     }
     AppComponent = __decorate([
         router_deprecated_1.RouteConfig([
@@ -25,16 +27,23 @@ var AppComponent = (function () {
                 name: 'ManualEntry',
                 component: manual_component_1.ManualComponent,
                 useAsDefault: true
+            },
+            {
+                path: '/tabledata',
+                name: 'TableData',
+                component: tabledata_component_1.TableDataComponent,
+                useAsDefault: false
             }
         ]),
         core_1.Component({
             selector: 'qSynG-app',
-            template: "\n          <h1>{{title}}</h1>\n          <nav>\n            <a [routerLink]=\"['ManualEntry']\">Manual Entry</a>\n            <a href=\"{{CDNUrl}}/doc/index.html\">Documentation</a>\n          </nav>\n          <router-outlet></router-outlet>\n        ",
+            template: "\n          <h1>{{title}}</h1>\n          <nav>\n            <a [routerLink]=\"['ManualEntry']\">Manual Entry</a>\n            <a [routerLink]=\"['TableData']\">Table Data</a>\n            <a href=\"{{CDNUrl}}/doc/index.html\">Documentation</a>\n          </nav>\n          <router-outlet></router-outlet>\n        ",
             styleUrls: ['./app/views/app.component.css'],
             directives: [router_deprecated_1.ROUTER_DIRECTIVES],
             providers: [
                 router_deprecated_1.ROUTER_PROVIDERS,
-                operator_service_1.OperatorService
+                operator_service_1.OperatorService,
+                countries_service_1.CountriesService
             ]
         }), 
         __metadata('design:paramtypes', [])

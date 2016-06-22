@@ -76,6 +76,7 @@ var qSynG = function(){
         "lastYear":             { key: "Last year",                 value: "year({0}) eq {1}" },
         "nextYear":             { key: "Next year",                 value: "year({0}) eq {1}" }
     };
+
     Object.freeze(Operators);
 
     if (!String.prototype.format) {
@@ -101,7 +102,27 @@ var qSynG = function(){
     * @param {string} operands The value to check each variableName for.
     * @example [variableName]FirstName [operator]equals [operands]'John'
     */
-    var SyntaxModel = function (variableName, opType, operands) {
+    var SyntaxModel = function (variableName, opType, operands, allowPropogation) {
+
+        // Make copy of the originals to preserve the original state //
+        var originalVariableName = variableName;
+        var originalOperator = opType;
+        var originalOperands = operands;
+        var Original = null;
+
+        // If DEFINED and set to True //
+        if (allowPropogation || allowPropogation === true) {
+            /**
+            * Original copy of this object to preserve state. 
+            * @classref SyntaxModel
+            * @memberof qSynG.SyntaxModel
+            * @param {string} variableName Name of the value to compare operands to. 
+            * @param {Operator} operator See the Operator object.
+            * @param {string} operands The value to check each variableName for.
+            */
+            Original = new SyntaxModel(originalVariableName, originalOperator, originalOperator, false);
+        }
+        
 
         return {
 
@@ -116,46 +137,53 @@ var qSynG = function(){
     *   @memberof qSynG
     *	@class generator
     *	@param {SyntaxModel[]} syntaxModels Collection representing the data used to generate a syntax string.
+    *	@param {string} Override the querystring parameter [queryName] - e.g. ?[queryName]=PrimaryKey eq 10012.
     *   @property {SyntaxModel[]} models internal storage for the collection.
     */
-    var generator = function (syntaxModels) {
+    var generator = function (syntaxModels, queryParameterName) {
 
-        var prepender = "?";
+        // If the queryParameterName is undefined use "?" //
+        var prepender = queryParameterName ?
+            "?" + queryParameterName + "=" :
+            "?query=";
         var appender = "&";
         var models = syntaxModels;
 
         /**       
-        *   Builds the querystring text based on the syntax models
+        *   Builds the query text that can be used in a URL. Requires wrapping the text in the 
+        *   typical http url querystring syntax.
+        *   @memberof qSynG.generator
+        *	@method querySyntax        
+        *   @returns {string} query text only - e.g. variableName eq 1000
+        */
+        var querySyntax = function () {
+
+            var generatedSytaxItems = syntaxBuilder();
+
+            var joinedSyntaxItems = joinSyntaxItemsByConjunction(generatedSytaxItems, "AND");
+            
+            return joinedSyntaxItems;
+        };
+
+        /**       
+        *   Builds the querystring text based on the syntax models. Append the typical '?' and '&' 
+        *   join statements.
         *   @memberof qSynG.generator
         *	@method urlSyntax        
-        *   @returns {string} querystring - e.g. ?variableName eq 1000&
+        *   @returns {string} querystring - e.g. ?variableName eq 1000 AND/OR variableName ne 100
         */
         var urlSyntax = function () {
 
+            // prepend with the '?' //
             var masterUrl = prepender;
 
-            for (var i = 0; i < models.length; i++) {
-                // Work thwrough the collection of models //
-                var currentModel = models[i];
+            var generatedSytaxItems = syntaxBuilder();
 
-                // check if the Operators object contains the value of the user selected operator (e.g. greaterThan, equals, etc) //
-                if (Operators.hasOwnProperty(currentModel.operator)){
+            // Join all items together with the conjunction //
+            masterUrl += joinSyntaxItemsByConjunction(generatedSytaxItems, "AND");
 
-                    // TEXT ----------------------------------------//
-                    // http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part2-url-conventions/odata-v4.0-errata02-os-part2-url-conventions-complete.html#_Toc406398123
-                    if (typeof (currentModel.operands) === "string") {
-                        currentModel.variableName = "tolower(" + currentModel.variableName + ")";
-                    }
-
-                    masterUrl += Operators[currentModel.operator].value.format(currentModel.variableName, currentModel.operands);
-                    
-                    // Numeric -------------------------------------- //
-                    // http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part2-url-conventions/odata-v4.0-errata02-os-part2-url-conventions-complete.html#_Toc406398119
-                    if (currentModel.operator === Operators.greaterThan.key)
-                        masterUrl += "";
-                }
-                
-            }
+            // append the '&' //
+            masterUrl += appender;
 
             return masterUrl;
         };
@@ -167,14 +195,102 @@ var qSynG = function(){
         *   @returns {SyntaxModel[]} JSON representing the queries.
         */
         var objectSyntax = function () {
+
             return models;
+
+            // the following would get a copy of the original models in an unaltered state //
+            //return getOriginalModels(models);
         };
         
-        
+        /**       
+        *   Builds a collection of strings properly representing SyntaxModel[].
+        *   @memberof qSynG.generator
+        *	@method syntaxBuilder        
+        *   @returns {string[]} Properly formatted model strings. 
+        */
+        var syntaxBuilder = function () {
+
+            var syntaxItems = [];
+
+            for (var i = 0; i < models.length; i++) {
+                // Work thwrough the collection of models //
+                var currentModel = models[i];
+                var urlSyntax = "";
+                var currentOperands = currentModel.operands;
+
+                // check if the Operators object contains the value of the user selected operator (e.g. greaterThan, equals, etc) //
+                if (Operators.hasOwnProperty(currentModel.operator)) {
+
+                    // TEXT ----------------------------------------//
+                    // http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part2-url-conventions/odata-v4.0-errata02-os-part2-url-conventions-complete.html#_Toc406398123
+                    if (typeof (currentModel.operands) === "string") {
+                        urlSyntax = "tolower(" + currentModel.variableName + ")";
+                        currentOperands = "'" + currentOperands + "'";
+                    }
+
+                    urlSyntax = Operators[currentModel.operator].value.format(urlSyntax, currentOperands);
+
+                    // Numeric -------------------------------------- //
+                    // http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part2-url-conventions/odata-v4.0-errata02-os-part2-url-conventions-complete.html#_Toc406398119
+                    if (currentModel.operator === Operators.greaterThan.key)
+                        masterUrl += "";
+                }
+                syntaxItems.push(urlSyntax);
+            }
+            return syntaxItems;
+        };
+
+        /**       
+        *   Combines the syntax strings into a full query using the conjunction parameter.
+        *   @memberof qSynG.generator
+        *	@method joinSyntaxItemsByConjunction        
+        *   @returns {string} Combined query text.
+        *   @example variableName eq 'United States' AND variableName ne 'United States'
+        */
+        var joinSyntaxItemsByConjunction = function (syntaxItems, conjunction) {
+
+            var joinedSyntaxItems = "";
+            for (var i = 0; i < syntaxItems.length; i++) {
+
+                if (i === 0) {
+                    joinedSyntaxItems = syntaxItems[i];
+                }
+                else {
+                    // Futue tasks will allow for the OR conjunction //
+                    joinedSyntaxItems += conjunction + syntaxItems[i];
+                }
+            }
+            return joinedSyntaxItems;
+        };
+
+        /**       
+        *   Retrieves the original SyntaxModels in their default state.
+        *   @memberof qSynG.generator
+        *	@method getOriginalModels        
+        *   @param {SyntaxModel[]} Models originally passed into the generator.
+        *   @returns {SyntaxModel[]} Deep copy of the original models. 
+        */
+        var getOriginalModels = function (modelsCollection) {
+
+            if (modelsCollection && modelsCollection.length > 0) {
+
+                var modelsCopy = [];
+
+                for (var i = 0; i < modelsCollection.length; i++) {
+
+                    var currentModel = modelsCollection[i];
+
+                    modelsCopy.push(currentModel.Original);
+                }
+
+                return modelsCopy;
+            }
+        };
 
         /**
         */
         return {
+            querySyntax : querySyntax,
             urlSyntax: urlSyntax,
             objectSyntax: objectSyntax
         };

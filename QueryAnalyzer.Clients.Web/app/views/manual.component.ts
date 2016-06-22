@@ -1,6 +1,6 @@
 ﻿//import { QSynG } from '../services/qSynGen';
 declare var QSynG : any;
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router-deprecated';
 import { Operator } from '../models/operator';
 import { GeneratedSyntax } from '../models/generatedSyntax';
@@ -16,18 +16,20 @@ import { OperatorService } from '../services/operator.service';
 
 export class ManualComponent implements OnInit {
 
-    operators: Array<Operator> = [];
-    operator: Operator;
-    variableName: String = "PrimaryKey";
-    operands: String = "104004";
-    syntax: GeneratedSyntax = {
-        url: "?[variableName] eq [operands]", 
+    @Input() syntax: GeneratedSyntax = {
+        url: "?query=[variableName] eq [operands]",
+        query: "[variableName] eq [operands]",
         json: {
             variableName: "variableName",
             operator: "equals",
             operands: "operands"
         }
     };
+
+    operators: Array<Operator> = [];
+    operator: Operator;
+    variableName: String = "Name";
+    operands: String = "United States";
     
     constructor(
         private router: Router,
@@ -43,27 +45,20 @@ export class ManualComponent implements OnInit {
         
         this.syntax.url = generator.urlSyntax();
 
+        this.syntax.query = generator.querySyntax();
+
         this.syntax.json = generator.objectSyntax();
     }
 
     ngOnInit() {
     
         this.operators = []
+
         for (var operator in QSynG.Operators) {
             this.operators.push({ key: operator, value: QSynG.Operators[operator].key});
         }
 
         this.operator = this.operators[0];
-
-
-        //this.linkLoaded();
-
-
-        //this.operatorService.get()
-        //    .then(o => {
-        //        //this.operators = o;
-        //        console.log(o);
-        //    });
     }
     
     operatorChanged() {
