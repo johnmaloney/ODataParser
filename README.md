@@ -3,16 +3,16 @@
 Live Links to test the libraries(Javascript and C#) and read documentation:
 
 #### Web API
-http://queryanalyzerapi.azurewebsites.net/
+<a href="http://queryanalyzerapi.azurewebsites.net/" target="_blank">queryanalyzerapi.azurewebsites.net</a>
 
 #### Nuget Package
-https://www.nuget.org/packages/QueryAnalyzer
+<a href="https://www.nuget.org/packages/QueryAnalyzer" target="_blank">www.nuget.org/packages/QueryAnalyzer</a>
 
 #### Javascript CDN
-http://gis-cdn.azurewebsites.net
+<a href="http://gis-cdn.azurewebsites.net" target="_blank">gis-cdn.azurewebsites.net</a>
 
 #### Browser Test application
-http://queryanalyzerclient.azurewebsites.net/
+<a href="http://queryanalyzerclient.azurewebsites.net/" target="_blank">queryanalyzerclient.azurewebsites.net</a>
  
 
 The  purpose of this library is to provide a simplistic approach to a common problem, parsing standardized string queries into a rule object. This suite of libraries introduces a system that starts on the browser client with the qSynG javascript library and ends on the server with the C# libraries to parse the collection of Variable Name, Operator and Operands. The lbraries are autonomous, they don't need each other to properly operate, but having the client libraries produce the server side syntax covers a large portion of the scenarios.
