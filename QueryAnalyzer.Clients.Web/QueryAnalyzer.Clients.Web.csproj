@@ -76,6 +76,7 @@
     <Content Include="index.html" />
     <Content Include="packages.config" />
     <Content Include="package.json" />
+    <Content Include="favicon.ico" />
     <Content Include="tsconfig.json" />
     <Content Include="typings.json" />
     <None Include="Properties\PublishProfiles\QueryAnalyzerClient.pubxml" />
