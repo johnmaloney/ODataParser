@@ -44,14 +44,17 @@
     <Compile Include="APipe.cs" />
     <Compile Include="DateTypeOperator.cs" />
     <Compile Include="IAnalyzerStrategy.cs" />
+    <Compile Include="ICommandStrategy.cs" />
     <Compile Include="IConsumer.cs" />
     <Compile Include="IFilterDateRule.cs" />
     <Compile Include="IFilterPipe.cs" />
     <Compile Include="IFilterRule.cs" />
     <Compile Include="IFilterRuleCriteria.cs" />
     <Compile Include="IModule.cs" />
+    <Compile Include="IPropertyCallAdapter.cs" />
     <Compile Include="IRegex.cs" />
     <Compile Include="IStrategy.cs" />
+    <Compile Include="IStringSearchStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RuleCombinationOperator.cs" />
     <Compile Include="RuleOperator.cs" />

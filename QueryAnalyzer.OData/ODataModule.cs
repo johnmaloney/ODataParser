@@ -40,7 +40,7 @@ namespace QueryAnalyzer.Modules.OData
             oDataConsumer.BuildRules();
             return oDataConsumer;
         }
-
+        
         #endregion
     }
 }

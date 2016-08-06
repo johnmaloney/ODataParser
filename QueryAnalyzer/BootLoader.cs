@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using QueryAnalyzer.Common;
+using QueryAnalyzer.Common.Strategies;
 using QueryAnalyzer.Interfaces;
 
 namespace QueryAnalyzer
@@ -26,6 +27,8 @@ namespace QueryAnalyzer
         public BootLoader()
         {
             Strategy.AddStrategy<IAnalyzerStrategy>(new AnalyzerStrategy());
+            Strategy.AddStrategy<ICommandStrategy>(new DefaultInvokerStrategy());
+            Strategy.AddStrategy<IStringSearchStrategy>(new StringSearchStrategy());
         }
 
         public void RegisterModule(string moduleIdentifier, IModule module)

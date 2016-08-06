@@ -79,6 +79,7 @@
     <Content Include="favicon.ico" />
     <Content Include="tsconfig.json" />
     <Content Include="typings.json" />
+    <Content Include="ReadMe.md" />
     <None Include="Properties\PublishProfiles\QueryAnalyzerClient.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

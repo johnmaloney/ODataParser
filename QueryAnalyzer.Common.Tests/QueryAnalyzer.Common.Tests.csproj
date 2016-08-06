@@ -45,7 +45,9 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
@@ -56,6 +58,8 @@
     <Compile Include="MockItems\MockModule.cs" />
     <Compile Include="Pipeline\IPipe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CommandActionTests.cs" />
+    <Compile Include="StringTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QueryAnalyzer.Common\QueryAnalyzer.Common.csproj">

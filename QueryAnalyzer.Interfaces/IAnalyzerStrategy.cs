@@ -10,5 +10,6 @@ namespace QueryAnalyzer.Interfaces
     {
         IModule Default { get; set; }
         IEnumerable<IFilterRule> Analyze(string statement);
+        Task<bool> Passes<T>(T dataContainer, IFilterRule rule);
     }
 }

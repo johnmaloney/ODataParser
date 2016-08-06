@@ -10,6 +10,9 @@ using QueryAnalyzer.Common;
 
 namespace QueryAnalyzer.API.Domain
 {
+    /// <summary>
+    /// Allows access to the Countries data. Sourced from this http://restcountries.eu/
+    /// </summary>
     public class CountriesRepository
     {
         #region Fields
@@ -23,16 +26,28 @@ namespace QueryAnalyzer.API.Domain
 
         #region Methods
 
+        /// <summary>
+        /// This class gets instantiated only once. Will convert a compiled version of the Coutries into JSON.
+        /// </summary>
         public CountriesRepository()
         {
             countries = Newtonsoft.Json.JsonConvert.DeserializeObject<IEnumerable<Country>>(Properties.Resources.Countries);
         }
 
+        /// <summary>
+        /// Retrieve all the Listed countries from http://restcountries.eu/
+        /// </summary>
+        /// <returns>Collection of <see cref="Country"/></returns>
         public async Task<IEnumerable<Country>> GetAll()
         {
             return countries;
         }
 
+        /// <summary>
+        /// Retrieve a specific Country by the search criteria.
+        /// </summary>
+        /// <param name="filters"></param>
+        /// <returns>Filtered collection of <see cref="Country"/></returns>
         public async Task<IEnumerable<Country>> Get(IEnumerable<IFilterRule> filters)
         {
             var matchingCountries = new List<Country>();
@@ -76,6 +91,12 @@ namespace QueryAnalyzer.API.Domain
         public string[] Currencies { get; set; }
         public string[] Languages { get; set; }
 
+        /// <summary>
+        /// Uses reflection to find out if a property exists with a value.
+        /// </summary>
+        /// <param name="variableName"></param>
+        /// <param name="operands"></param>
+        /// <returns></returns>
         public bool HasValueEqualTo(string variableName, string operands)
         {
             var property = this.GetType().GetProperty(variableName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);

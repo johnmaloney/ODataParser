@@ -19,7 +19,6 @@ namespace QueryAnalyzer.Modules.OData
 
         public Regex NumericVariableName { get; private set; }
 
-
         public Regex OperatorCheck { get; private set; }
 
         public Regex Operator { get; private set; }

@@ -495,6 +495,37 @@
             <example>[server]/api/coutries?query=name eq 'United State'</example>
             <returns>IEnumerable of Country</returns>
         </member>
+        <member name="T:QueryAnalyzer.API.Domain.CountriesRepository">
+            <summary>
+            Allows access to the Countries data. Sourced from this http://restcountries.eu/
+            </summary>
+        </member>
+        <member name="M:QueryAnalyzer.API.Domain.CountriesRepository.#ctor">
+            <summary>
+            This class gets instantiated only once. Will convert a compiled version of the Coutries into JSON.
+            </summary>
+        </member>
+        <member name="M:QueryAnalyzer.API.Domain.CountriesRepository.GetAll">
+            <summary>
+            Retrieve all the Listed countries from http://restcountries.eu/
+            </summary>
+            <returns>Collection of <see cref="T:QueryAnalyzer.API.Domain.Country"/></returns>
+        </member>
+        <member name="M:QueryAnalyzer.API.Domain.CountriesRepository.Get(System.Collections.Generic.IEnumerable{QueryAnalyzer.Interfaces.IFilterRule})">
+            <summary>
+            Retrieve a specific Country by the search criteria.
+            </summary>
+            <param name="filters"></param>
+            <returns>Filtered collection of <see cref="T:QueryAnalyzer.API.Domain.Country"/></returns>
+        </member>
+        <member name="M:QueryAnalyzer.API.Domain.Country.HasValueEqualTo(System.String,System.String)">
+            <summary>
+            Uses reflection to find out if a property exists with a value.
+            </summary>
+            <param name="variableName"></param>
+            <param name="operands"></param>
+            <returns></returns>
+        </member>
         <member name="T:QueryAnalyzer.API.Properties.Resources">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
