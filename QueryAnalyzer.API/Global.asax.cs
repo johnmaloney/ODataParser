@@ -9,6 +9,7 @@ using System.Web.Routing;
 using Microsoft.Practices.Unity;
 using QueryAnalyzer.API.Domain;
 using QueryAnalyzer.Common;
+using QueryAnalyzer.Common.Strategies;
 using QueryAnalyzer.Interfaces;
 using QueryAnalyzer.Modules.OData;
 
@@ -34,7 +35,8 @@ namespace QueryAnalyzer.API
             // Register the strategies for OData Parsing //
             Strategy.AddStrategy<IRegex>(new ODataRegexStrategy());
             Strategy.AddStrategy<IAnalyzerStrategy>(new AnalyzerStrategy());
-            
+            Strategy.AddStrategy<ICommandStrategy>(new DefaultInvokerStrategy());
+
             // Set the Default Module to the OData Module //
             var module = new ODataModule();
             Strategy.For<IAnalyzerStrategy>().Default = module;

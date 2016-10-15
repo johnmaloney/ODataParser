@@ -413,6 +413,7 @@ var qSynG = function () {
                     // http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part2-url-conventions/odata-v4.0-errata02-os-part2-url-conventions-complete.html#_Toc406398123
                     switch (typeof currentModel.operands) {
                         case "string":
+                            currentOperands = affirmStringValidity(currentOperands);
                             args.push("tolower(" + currentModel.variableName + ")");
                             break;
                         default:
@@ -487,6 +488,23 @@ var qSynG = function () {
 
                 return modelsCopy;
             }
+        };
+
+        var affirmStringValidity = function (text) {
+            if (text.startsWith("'")) {
+                if (text.endsWith("'")) {
+                    return text;
+                }
+                else {
+                    text += "'";
+                    text = affirmStringValidity(text);
+                }
+            }
+            else {
+                text = "'" + text;
+                text = affirmStringValidity(text);
+            }
+            return text;
         };
 
         /**

@@ -77,7 +77,7 @@ namespace QueryAnalyzer.Common.Strategies.Commands
 
         public Task<bool> IsDBNull(int variableValue, int operands)
         {
-            return Task.FromResult(variableValue == operands);
+            return Task.FromResult(false);
         }
 
         public Task<bool> IsEqualTo(Int32 variableValue, Int32 operands)
@@ -130,110 +130,96 @@ namespace QueryAnalyzer.Common.Strategies.Commands
             return Task.FromResult(variableValue == operands);
         }
     }
-    
-    //public class Int64RuleReceiver : AReceiver<Int64>, IReceiver<Int64>
-    //{
-    //    public Task<bool> Always(Int64 variableValue, Int64 operands)
-    //    {
-    //        return Task.FromResult(
-    //            variableValue == operands);
-    //    }
 
-    //    public Task<bool> Contains(Int64 variableValue, Int64 operands)
-    //    {
-    //        return Task.FromResult((variableValue - operands) > 0);
-    //    }
+    public class Int64RuleReceiver : AReceiver<Int64>, IReceiver<Int64>
+    {
+        public Task<bool> Always(Int64 variableValue, Int64 operands)
+        {
+            return Task.FromResult(
+                variableValue == operands);
+        }
 
-    //    public Task<bool> DoesNotContain(Int64 variableValue, Int64 operands)
-    //    {
-    //        return Task.FromResult(
-    //            variableValue == operands);
-    //    }
+        public Task<bool> Contains(Int64 variableValue, Int64 operands)
+        {
+            return Task.FromResult((variableValue - operands) > 0);
+        }
 
-    //    public Task<bool> EndsWith(Int64 variableValue, Int64 operands)
-    //    {
-    //        return Task.FromResult(
-    //            variableValue.EndsWith(operands));
-    //    }
+        public Task<bool> DoesNotContain(Int64 variableValue, Int64 operands)
+        {
+            return Task.FromResult(
+                variableValue == operands);
+        }
 
-    //    public Task<bool> In(Int64 variableValue, Int64 operands)
-    //    {
-    //        return Task.FromResult((variableValue - operands) > 0);
-    //    }
+        public Task<bool> EndsWith(Int64 variableValue, Int64 operands)
+        {
+            return Task.FromResult(variableValue == operands);
+        }
 
-    //    public Task<bool> IsBetween(Int64 variableValue, Int64 operands)
-    //    {
-    //        return Task.FromResult(false);
-    //    }
+        public Task<bool> In(Int64 variableValue, Int64 operands)
+        {
+            return Task.FromResult((variableValue - operands) > 0);
+        }
 
-    //    public Task<bool> IsDBNull(Int64 variableValue, Int64 operands)
-    //    {
-    //        return Task.FromResult(
-    //            string.IsNullOrEmpty(variableValue));
-    //    }
+        public Task<bool> IsBetween(Int64 variableValue, Int64 operands)
+        {
+            return Task.FromResult(operands < variableValue && operands > (variableValue *-1));
+        }
 
-    //    public Task<bool> IsEqualTo(Int64 variableValue, Int64 operands)
-    //    {
-    //        return Task.FromResult(
-    //            variableValue.IsEqualTo(operands));
-    //    }
+        public Task<bool> IsDBNull(Int64 variableValue, Int64 operands)
+        {
+            return Task.FromResult(false);
+        }
 
-    //    public Task<bool> IsGreaterThan(Int64 variableValue, Int64 operands)
-    //    {
-    //        return Task.FromResult(
-    //            (int)variableValue.ToCharArray().Sum(c => (int)c)
-    //            < (int)operands.ToCharArray().Sum(c => (int)c));
+        public Task<bool> IsEqualTo(Int64 variableValue, Int64 operands)
+        {
+            return Task.FromResult(
+                variableValue == operands);
+        }
 
-    //    }
+        public Task<bool> IsGreaterThan(Int64 variableValue, Int64 operands)
+        {
+            return Task.FromResult(operands > variableValue);
 
-    //    public Task<bool> IsGreaterThanOrEqual(Int64 variableValue, Int64 operands)
-    //    {
-    //        return Task.FromResult(
-    //            (int)variableValue.ToCharArray().Sum(c => (int)c)
-    //            <= (int)operands.ToCharArray().Sum(c => (int)c));
-    //    }
+        }
 
-    //    public Task<bool> IsLessThan(Int64 variableValue, Int64 operands)
-    //    {
-    //        return Task.FromResult(
-    //            (int)variableValue.ToCharArray().Sum(c => (int)c)
-    //            > (int)operands.ToCharArray().Sum(c => (int)c));
-    //    }
+        public Task<bool> IsGreaterThanOrEqual(Int64 variableValue, Int64 operands)
+        {
+            return Task.FromResult(operands >= variableValue);
+        }
 
-    //    public Task<bool> IsLessThanOrEqual(Int64 variableValue, Int64 operands)
-    //    {
-    //        return Task.FromResult(
-    //            (int)variableValue.ToCharArray().Sum(c => (int)c)
-    //            >= (int)operands.ToCharArray().Sum(c => (int)c));
-    //    }
+        public Task<bool> IsLessThan(Int64 variableValue, Int64 operands)
+        {
+            return Task.FromResult(operands < variableValue);
+        }
 
-    //    public Task<bool> IsNotDBNull(Int64 variableValue, Int64 operands)
-    //    {
-    //        return Task.FromResult(
-    //            !string.IsNullOrEmpty(variableValue));
-    //    }
+        public Task<bool> IsLessThanOrEqual(Int64 variableValue, Int64 operands)
+        {
+            return Task.FromResult(operands <= variableValue);
+        }
 
-    //    public Task<bool> NeverHas(Int64 variableValue, Int64 operands)
-    //    {
-    //        return Task.FromResult(
-    //            !Strategy.For<IStringSearchStrategy>().HasWithin(variableValue, operands));
-    //    }
+        public Task<bool> IsNotDBNull(Int64 variableValue, Int64 operands)
+        {
+            return Task.FromResult(true);
+        }
 
-    //    public Task<bool> NotEqual(Int64 variableValue, Int64 operands)
-    //    {
-    //        return Task.FromResult(
-    //            !variableValue.IsEqualTo(operands));
-    //    }
+        public Task<bool> NeverHas(Int64 variableValue, Int64 operands)
+        {
+            return Task.FromResult(variableValue != operands);
+        }
 
-    //    public Task<bool> NotIn(Int64 variableValue, Int64 operands)
-    //    {
-    //        return Task.FromResult(
-    //            !Strategy.For<IStringSearchStrategy>().HasWithin(variableValue, operands));
-    //    }
+        public Task<bool> NotEqual(Int64 variableValue, Int64 operands)
+        {
+            return Task.FromResult(operands != variableValue);
+        }
 
-    //    public Task<bool> StartsWith(Int64 variableValue, Int64 operands)
-    //    {
-    //        return Task.FromResult(variableValue.StartsWith(operands));
-    //    }
-    //}
+        public Task<bool> NotIn(Int64 variableValue, Int64 operands)
+        {
+            return Task.FromResult(operands != variableValue);
+        }
+
+        public Task<bool> StartsWith(Int64 variableValue, Int64 operands)
+        {
+            return Task.FromResult(operands == variableValue);
+        }
+    }
 }

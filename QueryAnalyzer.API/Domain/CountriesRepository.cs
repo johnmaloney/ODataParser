@@ -51,11 +51,14 @@ namespace QueryAnalyzer.API.Domain
         public async Task<IEnumerable<Country>> Get(IEnumerable<IFilterRule> filters)
         {
             var matchingCountries = new List<Country>();
-            Parallel.ForEach(countries, (country) =>
+            var type = typeof(Country);
+            Parallel.ForEach(countries, async (country) =>
+            //foreach(var country in countries)
             {
                 foreach (var rule in filters)
                 {
-                    if (country.HasValueEqualTo(rule.VariableName, rule.Operands))
+                    var passed = await Strategy.For<IAnalyzerStrategy>().Passes<Country>(country, rule);
+                    if (passed)
                         matchingCountries.Add(country);
                 }
             });

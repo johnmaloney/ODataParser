@@ -162,5 +162,21 @@ namespace QueryAnalyzer.Modules.OData.Tests
             Assert.AreEqual(1, dateRule.DateOperands.Day);
             Assert.AreEqual(2014, dateRule.DateOperands.Year);
         }
+
+        [TestMethod]
+        public void consume_named_filter_url_expect_rules()
+        {
+            var oDataConsumer = new ODataConsumer(new FilterRuleCriteria
+            {
+                FilterStatement = "tolower(Name) eq 'United States'",
+                FilterLogic = "and"
+            });
+
+            var rules = oDataConsumer.BuildRules();
+            Assert.IsTrue(rules.Count == 1);
+
+            var rule = rules[0] as IFilterRule;
+            Assert.IsNotNull(rule);
+        }
     }
 }

@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Strategies\Commands\AReceiver.cs" />
+    <Compile Include="Strategies\Commands\Dates.cs" />
     <Compile Include="Strategies\Commands\Numbers.cs" />
     <Compile Include="Strategies\Commands\Strings.cs" />
     <Compile Include="Strategies\DefaultCommandStrategy.cs" />

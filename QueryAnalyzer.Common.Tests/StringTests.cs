@@ -14,8 +14,8 @@ namespace QueryAnalyzer.Common.Tests
         {
             var receiver = new StringRuleReceiver();
             var command = new StringRuleCommand(receiver);
-            
-            Assert.IsTrue(await command.ExecuteRule("This string contains something", RuleOperator.Always, "ing"));
+
+            Assert.IsFalse(await command.ExecuteRule("This string contains something", RuleOperator.Always, "ing"));
             Assert.IsTrue(await command.ExecuteRule("This string contains something", RuleOperator.Between, "contains"));
             Assert.IsTrue(await command.ExecuteRule("This string contains something", RuleOperator.Contains, "string"));
             Assert.IsTrue(await command.ExecuteRule("This string contains something", RuleOperator.DoesNotContain, "tree"));
@@ -25,10 +25,8 @@ namespace QueryAnalyzer.Common.Tests
             Assert.IsTrue(await command.ExecuteRule("This string contains something", RuleOperator.GreaterThanEqual, "This string contains something"));
             Assert.IsTrue(await command.ExecuteRule("This string contains something", RuleOperator.In, "string"));
             Assert.IsTrue(await command.ExecuteRule("This string contains something", RuleOperator.NotEqual, "test"));
-            Assert.IsTrue(await command.ExecuteRule("This string contains something", RuleOperator.NotIn, "abc"));
+            Assert.IsFalse(await command.ExecuteRule("This string contains something", RuleOperator.NotIn, "abc"));
             Assert.IsTrue(await command.ExecuteRule("This string contains something", RuleOperator.StartsWith, "this"));
-
-
         }
     }
 }

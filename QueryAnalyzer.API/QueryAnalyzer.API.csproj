@@ -75,22 +75,6 @@
       <HintPath>..\packages\Newtonsoft.Json.Schema.2.0.3-beta1\lib\net45\Newtonsoft.Json.Schema.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="QueryAnalyzer, Version=1.0.17.2377, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\QueryAnalyzer.1.0.17.2377\lib\net46\QueryAnalyzer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="QueryAnalyzer.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\QueryAnalyzer.1.0.17.2377\lib\net46\QueryAnalyzer.Common.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="QueryAnalyzer.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\QueryAnalyzer.1.0.17.2377\lib\net46\QueryAnalyzer.Interfaces.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="QueryAnalyzer.Modules.OData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\QueryAnalyzer.1.0.17.2377\lib\net46\QueryAnalyzer.Modules.OData.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -382,7 +366,24 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\QueryAnalyzer.Common\QueryAnalyzer.Common.csproj">
+      <Project>{930c1ac8-239e-487a-b70f-72f4496a18f2}</Project>
+      <Name>QueryAnalyzer.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QueryAnalyzer.Interfaces\QueryAnalyzer.Interfaces.csproj">
+      <Project>{d07f46f2-dc85-41e1-aa8e-66f7a8f54aea}</Project>
+      <Name>QueryAnalyzer.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QueryAnalyzer.OData\QueryAnalyzer.Modules.OData.csproj">
+      <Project>{e4d98203-267f-4e8a-8430-16763aeb118f}</Project>
+      <Name>QueryAnalyzer.Modules.OData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QueryAnalyzer\QueryAnalyzer.csproj">
+      <Project>{4e35ac49-d440-44c7-b1ac-def822151733}</Project>
+      <Name>QueryAnalyzer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

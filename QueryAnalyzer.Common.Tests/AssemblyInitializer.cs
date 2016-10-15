@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using QueryAnalyzer.Common;
 using QueryAnalyzer.Common.Strategies;
-using QueryAnalyzer.Common.Tests;
 using QueryAnalyzer.Interfaces;
 
-namespace QueryAnalyzer.Modules.OData.Tests
+namespace QueryAnalyzer.Common.Tests
 {
     [TestClass]
     public class AssemblyInitializer
@@ -18,15 +16,10 @@ namespace QueryAnalyzer.Modules.OData.Tests
         public static void AssemblyInitialize(TestContext context)
         {
             ATest.AssemblyInitialize(context);
-
-            Strategy.AddStrategy<IRegex>(new ODataRegexStrategy());
+            
             Strategy.AddStrategy<IAnalyzerStrategy>(new AnalyzerStrategy());
             Strategy.AddStrategy<ICommandStrategy>(new DefaultInvokerStrategy());
             Strategy.AddStrategy<IStringSearchStrategy>(new StringSearchStrategy());
-
-            // Set the OData Module as the Default //
-            var module = new ODataModule();
-            Strategy.For<IAnalyzerStrategy>().Default = module;
         }
     }
 }

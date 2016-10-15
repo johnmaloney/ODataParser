@@ -35,7 +35,7 @@ namespace QueryAnalyzer.Common.Strategies.Commands
         public Task<bool> Always(string variableValue, string operands)
         {
             return Task.FromResult(
-                variableValue.IsEqualTo(operands));
+                variableValue.ToLowerInvariant().Contains(operands.ToLowerInvariant()));
         }
 
         public Task<bool> Contains(string variableValue, string operands)
@@ -47,13 +47,13 @@ namespace QueryAnalyzer.Common.Strategies.Commands
         public Task<bool> DoesNotContain(string variableValue, string operands)
         {
             return Task.FromResult(
-                variableValue == operands);
+                !variableValue.Contains(operands));
         }
 
         public Task<bool> EndsWith(string variableValue, string operands)
         {
             return Task.FromResult(
-                variableValue .EndsWith(operands));
+                variableValue.EndsWith(operands));
         }
 
         public Task<bool> In(string variableValue, string operands)
@@ -135,7 +135,7 @@ namespace QueryAnalyzer.Common.Strategies.Commands
 
         public Task<bool> StartsWith(string variableValue, string operands)
         {
-            return Task.FromResult(variableValue.StartsWith(operands));
+            return Task.FromResult(variableValue.ToLower().StartsWith(operands.ToLower()));
         }
     }
 }

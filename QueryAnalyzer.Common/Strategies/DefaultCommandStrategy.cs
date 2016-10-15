@@ -52,7 +52,7 @@ namespace QueryAnalyzer.Common.Strategies
                 { RuleOperator.Between, receiver.IsBetween },
                 { RuleOperator.Contains, receiver.Contains},
                 { RuleOperator.DoesNotContain, receiver.DoesNotContain },
-                { RuleOperator.EndsWith, receiver.IsEqualTo },
+                { RuleOperator.EndsWith, receiver.EndsWith },
                 { RuleOperator.Equal, receiver.IsEqualTo },
                 { RuleOperator.GreaterThan, receiver.IsGreaterThan },
                 { RuleOperator.GreaterThanEqual, receiver.IsGreaterThanOrEqual },
@@ -95,8 +95,8 @@ namespace QueryAnalyzer.Common.Strategies
             this.RecordCommand(typeof(string), new StringRuleCommand(new StringRuleReceiver()));
             this.RecordCommand(typeof(Int32), new NumberRuleCommand<Int32>(new Int32RuleReceiver()));
 
-            //this.RecordCommand(typeof(Int64), new Int64RuleCommand(new Int64RuleReceiver()));
-            //this.RecordCommand(typeof(DateTime), new DateRuleCommand(new DateRuleReceiver()));
+            this.RecordCommand(typeof(Int64), new NumberRuleCommand<Int64>(new Int64RuleReceiver()));
+            this.RecordCommand(typeof(DateTime), new DateRuleCommand(new DateRuleReceiver()));
         }
 
         public void RecordCommand(Type variableType, IRuleCommand ruleCommand)

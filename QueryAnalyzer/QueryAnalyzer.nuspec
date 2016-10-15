@@ -31,5 +31,10 @@
     <file src="..\QueryAnalyzer.Common\bin\Release\QueryAnalyzer.Common.dll" target="lib\net46\" />
     <file src="..\QueryAnalyzer.Interfaces\bin\Release\QueryAnalyzer.Interfaces.dll" target="lib\net46\" />
     <file src="..\QueryAnalyzer\bin\Release\QueryAnalyzer.dll" target="lib\net46\" />
+    
+    <file src="..\QueryAnalyzer.OData\bin\Release\QueryAnalyzer.Modules.OData.pdb" target="lib\net46\" />
+    <file src="..\QueryAnalyzer.Common\bin\Release\QueryAnalyzer.Common.pdb" target="lib\net46\" />
+    <file src="..\QueryAnalyzer.Interfaces\bin\Release\QueryAnalyzer.Interfaces.pdb" target="lib\net46\" />
+    <file src="..\QueryAnalyzer\bin\Release\QueryAnalyzer.pdb" target="lib\net46\" />
   </files>
 </package>
