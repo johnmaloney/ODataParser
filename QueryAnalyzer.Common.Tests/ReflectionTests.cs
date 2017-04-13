@@ -38,7 +38,7 @@ namespace QueryAnalyzer.Common.Tests
             timer.Stop();
             //var possibleDuplicates = nameValues.GroupBy(v => v).Where(s => s.Count() > 1).Select(s => s);
 
-            Assert.IsTrue(timer.ElapsedMilliseconds < 650);
+            Assert.IsTrue(timer.ElapsedMilliseconds < 2000);
         }
 
         private class Data

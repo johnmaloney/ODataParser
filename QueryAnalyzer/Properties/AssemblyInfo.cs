@@ -12,11 +12,11 @@ using System.Resources;
 [assembly: AssemblyCompany("Aetos Consulting LLC")]
 [assembly: AssemblyProduct("Insert product here")]
 [assembly: AssemblyCopyright("Insert copyright here")]
-[assembly: AssemblyTrademark("Copyright © Aetos Consulting LLC 2016")]
+[assembly: AssemblyTrademark("Copyright © Aetos Consulting LLC 2017")]
 [assembly: AssemblyCulture("")]
 
 // Version information
-[assembly: AssemblyVersion("1.0.60.2420")]
-[assembly: AssemblyFileVersion("1.0.60.2420")]
+[assembly: AssemblyVersion("1.0.64.2424")]
+[assembly: AssemblyFileVersion("1.0.64.2424")]
 [assembly: NeutralResourcesLanguageAttribute( "en-US" )]
 
